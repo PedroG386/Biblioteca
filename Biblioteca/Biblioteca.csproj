@@ -116,6 +116,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Account\LogIn.aspx" />
+    <Content Include="Account\LogOut.aspx" />
     <Content Include="assets\css\tailwind.css" />
     <Content Include="assets\css\tailwind.output.css" />
     <Content Include="assets\img\create-account-office-dark.jpeg" />
@@ -199,6 +200,13 @@
     </Compile>
     <Compile Include="Account\LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\LogOut.aspx.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\LogOut.aspx.designer.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
