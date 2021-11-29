@@ -139,6 +139,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Devoluciones\Devoluciones.aspx" />
     <Content Include="Estudiantes\estudiantes.aspx" />
     <Content Include="Inicio.aspx" />
     <Content Include="favicon.ico" />
@@ -221,6 +222,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Devoluciones\Devoluciones.aspx.cs">
+      <DependentUpon>Devoluciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Devoluciones\Devoluciones.aspx.designer.cs">
+      <DependentUpon>Devoluciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Estudiantes\estudiantes.aspx.cs">
       <DependentUpon>estudiantes.aspx</DependentUpon>

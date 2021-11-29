@@ -5,6 +5,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
+    
+      <h2
+        class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">Prestamos
+    </h2>
+    <br />
+
+    <p style="font-size: 12px;">Crea y gestiona todos tus prestamos.</p>
+    <br />
+
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+        + Agrega Prestamo
+    </button><br /><br />
+
     <dx:ASPxGridView runat="server" CssClass="table" ID="GV_Prestamos" Theme="PlasticBlue" AutoGenerateColumns="False" DataSourceID="PrestamosDS" KeyFieldName="Clave">
         <Settings ShowFilterRow="True" ShowGroupPanel="True" />
         <SettingsSearchPanel Visible="True" />
@@ -24,6 +37,45 @@
             </dx:GridViewDataTextColumn>
         </Columns>
     </dx:ASPxGridView>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar Prestamo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <strong>Estudiante: </strong><br />
+          <asp:DropDownList runat="server" ID="cb_estudiantes" CssClass="form-control" DataSourceID="EstudianteDS" DataTextField="nombre" DataValueField="id_estudiante"></asp:DropDownList><br />
+          <strong>Libros: </strong><br />
+          <asp:DropDownList runat="server" ID="cb_libros" CssClass="form-control" DataSourceID="LibrosDS" DataTextField="nombre" DataValueField="id_libro"></asp:DropDownList><br />
+          <strong>Fecha:</strong><br />
+          <dx:ASPxDateEdit runat="server" ID="dtp_fecha" Theme="PlasticBlue" CssClass="form-control"></dx:ASPxDateEdit><br />
+          <strong>Observaciones:</strong><br />
+          <dx:ASPxTextBox runat="server" ID="inp_observaciones" CssClass="form-control"></dx:ASPxTextBox>
+
+      </div>
+      <div class="modal-footer">
+   
+        <dx:ASPxButton runat="server" ID="btn_genera" Theme="MaterialCompact" Text="REGISTRA PRESTAMO" OnClick="btn_genera_Click"></dx:ASPxButton>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+    <asp:SqlDataSource ID="EstudianteDS" runat="server" ConnectionString="<%$ ConnectionStrings:bibliotecaConnectionString %>" SelectCommand="SELECT [id_estudiante], [nombre] FROM [Estudiante]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="LibrosDS" runat="server" ConnectionString="<%$ ConnectionStrings:bibliotecaConnectionString %>" SelectCommand="SELECT [id_libro], [nombre] FROM [Libro]"></asp:SqlDataSource>
+
 
     <asp:SqlDataSource ID="PrestamosDS" runat="server" ConnectionString="<%$ ConnectionStrings:bibliotecaConnectionString %>" SelectCommand="SELECT 
 p.id_prestamo AS Clave,
